@@ -1,0 +1,7 @@
+streamlit
+pandas
+plotly
+langchain-core
+langchain-groq
+langchain-google-genai
+openpyxl
