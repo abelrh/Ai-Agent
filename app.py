@@ -4,7 +4,8 @@ from langchain_core.messages import HumanMessage, AIMessage
 
 # استيراد كافة الـ Modules من ملفاتك الجانبية
 from data_cleaner import clean_dataset
-from ai_agent import ask_ai_agent, generate_ai_insights, generate_sales_recommendations
+from ai_agent import ask_ai_agent, generate_sales_recommendations,generate_ai_insights
+
 from charts_builder import calculate_text_metric, generate_plotly_chart
 
 st.set_page_config(page_title="Advanced AI Data Agent", layout="wide")
