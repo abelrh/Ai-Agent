@@ -5,12 +5,12 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_groq import ChatGroq
 
 
-# GEMINI_API_KEY = "AQ.Ab8RN6K4SdIAAgqjL0fFNTQRqLvj_5hDfN28IqLp8t5WzboFqg" 
-
+GEMINI_API_KEY = "AQ.Ab8RN6J4VNToSBCohKgTwwbsFzkO7krrlEd5EY8qESNnDfDJ_w" 
+# AQ.Ab8RN6J4VNToSBCohKgTwwbsFzkO7krrlEd5EY8qESNnDfDJ_w
 # دالة تحليل السؤال وتحويله لقرار منظم عبر JSON
 def ask_ai_agent(user_query, df_columns, chat_history):
-    # llm = ChatGoogleGenerativeAI(api_key=GEMINI_API_KEY, model="gemini-2.5-flash", temperature=0)
-    llm = ChatGroq(api_key="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",model_name="llama-3.3-70b-versatile",temperature=0.3)
+    llm = ChatGoogleGenerativeAI(api_key=GEMINI_API_KEY, model="gemini-2.5-flash", temperature=0)
+    # llm = ChatGroq(api_key="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",model_name="llama-3.3-70b-versatile",temperature=0.3)
     system_prompt = """
     You are an expert Data Analysis AI Agent. You are having a conversation with a user about their dataset.
     Available columns in the dataset: {columns}
@@ -46,8 +46,8 @@ def ask_ai_agent(user_query, df_columns, chat_history):
 
 # دالة التفسير التلقائي المباشر للرسم البياني
 def generate_ai_insights(df_summary, operation, target_col, group_col):
-    # llm = ChatGoogleGenerativeAI(api_key=GEMINI_API_KEY, model="gemini-2.5-flash", temperature=0.7)
-    llm = ChatGroq(api_key="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",model_name="llama-3.3-70b-versatile",temperature=0.7)
+    llm = ChatGoogleGenerativeAI(api_key=GEMINI_API_KEY, model="gemini-2.5-flash", temperature=0.7)
+    # llm = ChatGroq(api_key="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",model_name="llama-3.3-70b-versatile",temperature=0.7)
     data_str = df_summary.head(10).to_string()
     
     prompt = f"""
@@ -63,8 +63,8 @@ def generate_ai_insights(df_summary, operation, target_col, group_col):
 
 # دالة توليد نصائح استراتيجية ومخصصة لزيادة المبيعات
 def generate_sales_recommendations(df, target_col, group_col):
-    # llm = ChatGoogleGenerativeAI(api_key=GEMINI_API_KEY, model="gemini-2.5-flash", temperature=0.7)
-    llm = ChatGroq(api_key="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",model_name="llama-3.3-70b-versatile",temperature=0.7)
+    llm = ChatGoogleGenerativeAI(api_key=GEMINI_API_KEY, model="gemini-2.5-flash", temperature=0.7)
+    # llm = ChatGroq(api_key="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",model_name="llama-3.3-70b-versatile",temperature=0.7)
     
     summary_df = df.groupby(group_col)[target_col].sum().reset_index()
     top_performer = summary_df.loc[summary_df[target_col].idxmax()]
